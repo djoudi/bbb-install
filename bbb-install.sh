@@ -313,13 +313,13 @@ check_version() {
   echo "deb https://ubuntu.bigbluebutton.org/$VERSION bigbluebutton-$DISTRO main" > /etc/apt/sources.list.d/bigbluebutton.list
 }
 
-check_host() {
-  need_pkg dnsutils
-  DIG_IP=$(dig +short $1 | grep '^[.0-9]*$' | tail -n1)
-  if [ -z "$DIG_IP" ]; then err "Unable to resolve $1 to an IP address using DNS lookup."; fi
-  get_IP
-  if [ "$DIG_IP" != "$IP" ]; then err "DNS lookup for $1 resolved to $DIG_IP but didn't match local $IP."; fi
-}
+#check_host() {
+ # need_pkg dnsutils
+ # DIG_IP=$(dig +short $1 | grep '^[.0-9]*$' | tail -n1)
+ # if [ -z "$DIG_IP" ]; then err "Unable to resolve $1 to an IP address using DNS lookup."; fi
+ # get_IP
+ # if [ "$DIG_IP" != "$IP" ]; then err "DNS lookup for $1 resolved to $DIG_IP but didn't match local $IP."; fi
+#}
 
 check_apache2() {
   if dpkg -l | grep -q apache2; then err "You must unisntall apache2 first"; fi
