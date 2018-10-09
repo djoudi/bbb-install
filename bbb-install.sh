@@ -103,7 +103,7 @@ main() {
 
       s)
         HOST=$OPTARG
-        check_host $HOST
+        #check_host $HOST
         ;;
       v)
         VERSION=$OPTARG
